@@ -1,15 +1,11 @@
 {% extends "bootstrap/base.html" %}
 
 {% block title %}Flasky{% endblock %}
+
 {% block head %}
 {{ super() }}
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-{% endblock %}
-
-{% block scripts %}
-{{ super() }}
-{{ moment.include_moment() }}
 {% endblock %}
 
 {% block navbar %}
@@ -22,12 +18,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Flasky</a>
+            <a class="navbar-brand" href="{{ url_for('main.index') }}">Flasky</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                </ul>
+                <li><a href="{{ url_for('main.index') }}">Home</a></li>
+            </ul>
         </div>
     </div>
 </div>
@@ -44,4 +40,9 @@
 
     {% block page_content %}{% endblock %}
 </div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ moment.include_moment() }}
 {% endblock %}
