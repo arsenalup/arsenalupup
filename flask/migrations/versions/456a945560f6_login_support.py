@@ -27,5 +27,6 @@ def downgrade():
     op.drop_index('ix_users_email', 'users')
     op.drop_column('users', 'password_hash')
     op.drop_column('users', 'email')
+
     ### end Alembic commands ###
 
