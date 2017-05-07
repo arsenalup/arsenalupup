@@ -2,5 +2,7 @@
 ForgeryPy==0.1
 Pygments==2.20
 colorama==0.3.9
+coverage==4.3.4
 httpie==0.9.9
 requests==2.13.0
+selenium==3.4.1
