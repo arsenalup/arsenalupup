@@ -1,5 +1,4 @@
 -r requirements/prod.txt
 Flask-SSLify==0.1.4
 gunicorn==18.0
-bleach==1.4.0
-psycopg2==2.7.1
+psycopg2==2.5.1
