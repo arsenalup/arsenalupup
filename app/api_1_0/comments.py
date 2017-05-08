@@ -42,11 +42,11 @@ def get_post_comments(id):
     comments = pagination.items
     prev = None
     if pagination.has_prev:
-        prev = url_for('api.get_post_comments', id=id, page=page - 1,
+        prev = url_for('api.get_post_comments', id=id, page=page-1,
                        _external=True)
     next = None
     if pagination.has_next:
-        next = url_for('api.get_post_comments', id=id, page=page + 1,
+        next = url_for('api.get_post_comments', id=id, page=page+1,
                        _external=True)
     return jsonify({
         'comments': [comment.to_json() for comment in comments],
