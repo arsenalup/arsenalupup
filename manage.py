@@ -44,6 +44,25 @@ def test(coverage=False):
         print('HTML version: file://%s/index.html' % covdir)
         COV.erase()
 
+@manager.command
+def initdata():
+    """ cretat a new data"""
+    db.create_all()
+    admin_role =Role(name = 'Administrator')
+    mod_role = Role(name = 'Moderator')
+    user_role =Role(name = 'User')
+    user_john=User(username='Arsenal',role=admin_role,confirmed=True,email='676250063@qq.com',
+                        password='cky1993717')
+    db.session.add_all([admin_role,mod_role,user_role,user_john,user_susan,user_david])
+    db.session.commit()
+    Role.insert_roles()
+
+@manager.command
+def drop():
+    """
+    drop the database
+    """
+    db.drop_all()
 
 @manager.command
 def profile(length=25, profile_dir=None):
@@ -52,6 +71,7 @@ def profile(length=25, profile_dir=None):
     app.wsgi_app = ProfilerMiddleware(app.wsgi_app, restrictions=[length],
                                       profile_dir=profile_dir)
     app.run()
+
 
 
 @manager.command
